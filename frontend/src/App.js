@@ -62,7 +62,7 @@ function App() {
     console.log(editUser)
     setCurrentUser(editedUser)
 
-    fetch(`http://localhost:8081/api/${id}`, {
+    fetch(`https://crud-nodejs-express-react.vercel.app/api/${id}`, {
       method: "PUT",
       body: JSON.stringify(
         editedUser
@@ -86,7 +86,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // para que no se recargue la pagina al momento de procesar el formulario
-    fetch("http://localhost:8081/api", {
+    fetch("https://crud-nodejs-express-react.vercel.app/api", {
       method: "POST",
       body: JSON.stringify(
         newUser
@@ -107,7 +107,7 @@ function App() {
   const deleteUser = async (id) => {
     alert("Seguro que quiere eliminar a este usuario?");
     console.log(id);
-    await fetch(`http://localhost:8081/api/${id}`, {
+    await fetch(`https://crud-nodejs-express-react.vercel.app/api/${id}`, {
       method: "DELETE",
     }).then((response) => {
       if (response.status === 200) {
