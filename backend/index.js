@@ -6,7 +6,8 @@ const fs = require("fs");
 
 app.use(cors());
 
-app.get("/api", (req, res) => {
+// app.get("/api", (req, res) => {
+app.get("https://crud-nodejs-express-react-server.vercel.app/api", (req, res) => {
     // fs.readFile('./users.json', 'utf8', (err, users) => {
     //     if (err) {
     //         return;
