@@ -4,6 +4,8 @@ const users = require("./users.json")
 const app = express();
 const fs = require("fs");
 
+app.use(express.static('client/build'));
+
 app.use(cors());
 
 app.get("/api", (req, res) => {
