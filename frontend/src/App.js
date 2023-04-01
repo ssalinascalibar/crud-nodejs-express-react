@@ -14,7 +14,7 @@ function App() {
   console.log(currentUser); 
 
   const getUsers = async () => {
-    const endPoint = "https://crud-nodejs-express-react-server.vercel.app/api";
+    const endPoint = "http://localhost:8081/api";
     const response = await fetch(endPoint);
     const data = await response.json();
 
@@ -86,7 +86,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // para que no se recargue la pagina al momento de procesar el formulario
-    fetch("https://crud-nodejs-express-react-server.vercel.app/api", {
+    fetch("http://localhost:8081/api", {
       method: "POST",
       body: JSON.stringify(
         newUser
