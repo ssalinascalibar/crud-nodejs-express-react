@@ -24,7 +24,7 @@ app.get("/api", (req, res) => {
 
 //agregar usuarios
 app.use(express.json())
-app.post("https://crud-nodejs-express-react-server.vercel.app/api", (req, res) => {
+app.post("https://crud-nodejs-express-react.vercel.app/api", (req, res) => {
     // newUser = req.body
     console.log(req.body); // undefined
     console.log('este es el nuevo usuario')
