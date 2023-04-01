@@ -7,16 +7,16 @@ const fs = require("fs");
 app.use(cors());
 
 app.get("/api", (req, res) => {
-    fs.readFile('./users.json', 'utf8', (err, users) => {
-        if (err) {
-            return;
-        }
-        try {
-            const customer = JSON.stringify(users);
-    } catch(err) {
-            console.log('Error parsing JSON string:', err);
-        }
-    })
+    // fs.readFile('./users.json', 'utf8', (err, users) => {
+    //     if (err) {
+    //         return;
+    //     }
+    //     try {
+    //         const customer = JSON.stringify(users);
+    // } catch(err) {
+    //         console.log('Error parsing JSON string:', err);
+    //     }
+    // })
     console.log(users);
     return res.json(users);
     
