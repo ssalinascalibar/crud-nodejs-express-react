@@ -14,7 +14,7 @@ function App() {
   console.log(currentUser); 
 
   const getUsers = async () => {
-    const endPoint = "http://localhost:8081/api";
+    const endPoint = "https://crud-nodejs-express-react-server.vercel.app/api";
     const response = await fetch(endPoint);
     const data = await response.json();
 
