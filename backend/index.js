@@ -30,7 +30,7 @@ app.post("/api", (req, res) => {
     console.log('este es el nuevo usuario')
     res.send("api");
 
-    fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
+    fs.writeFileSync("users.json", JSON.stringify([...users, req.body]), (err) => {
         if (err) console.log('Error writing file:', err);
     })
     console.log("usuarios actuales" + users)
