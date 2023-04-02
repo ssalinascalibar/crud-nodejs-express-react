@@ -6,6 +6,8 @@ const fs = require("fs");
 
 app.use(cors());
 
+app.use(express.json())
+
 app.get("/api", (req, res) => {
     // fs.readFile('./users.json', 'utf8', (err, users) => {
     //     if (err) {
@@ -23,7 +25,7 @@ app.get("/api", (req, res) => {
 })
 
 //agregar usuarios
-app.use(express.json())
+// app.use(express.json()) sirve para parsear el content type enviado desde el front
 app.post("/api", (req, res) => {
     // newUser = req.body
     console.log(req.body); // undefined
