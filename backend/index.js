@@ -34,7 +34,6 @@ app.post("/api", (req, res) => {
         if (err) console.log('Error writing file:', err);
     })
     console.log("usuarios actuales" + users)
-    return res.json(users);
 });
 
 //borrar usuario
@@ -78,6 +77,6 @@ app.put("/api/:id", (req, res) => {
     console.log("usuarios actuales" + users)
 });
 
-app.listen(8081, () => {
+app.listen("https://crud-nodejs-express-react-server.vercel.app", () => {
     console.log("Listening");
 })
