@@ -24,7 +24,7 @@ app.get("/api", (req, res) => {
 
 //agregar usuarios
 app.use(express.json())
-app.post("/api/post", (req, res) => {
+app.get("/api", (req, res) => {
     // newUser = req.body
     console.log(req.body); // undefined
     console.log('este es el nuevo usuario')
