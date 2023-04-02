@@ -34,6 +34,7 @@ app.post("/api", (req, res) => {
         if (err) console.log('Error writing file:', err);
     })
     console.log("usuarios actuales" + users)
+    return res.json(users);
 });
 
 //borrar usuario
