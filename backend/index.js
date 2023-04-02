@@ -26,15 +26,14 @@ app.get("/api", (req, res) => {
 app.use(express.json())
 // app.use(express.json()) sirve para parsear el content type enviado desde el front
 app.post("/api", (req, res) => {
-    fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
-        if (err) console.log('Error writing file:', err);
-    })
     // newUser = req.body
     console.log(req.body); // undefined
     console.log('este es el nuevo usuario')
     res.send("api");
 
-    
+    fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
+        if (err) console.log('Error writing file:', err);
+    })
     console.log("usuarios actuales" + users)
 });
 
