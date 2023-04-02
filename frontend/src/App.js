@@ -109,7 +109,7 @@ function App() {
   const deleteUser = async (id) => {
     alert("Seguro que quiere eliminar a este usuario?");
     console.log(id);
-    await fetch(`https://crud-nodejs-express-react.vercel.app/api/${id}`, {
+    await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
       method: "DELETE",
     }).then((response) => {
       if (response.status === 200) {
