@@ -88,7 +88,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // para que no se recargue la pagina al momento de procesar el formulario
     // fetch("http://localhost:8081/api", {
-    fetch("https://crud-nodejs-express-react-server.vercel.app/api", {
+    await fetch("https://crud-nodejs-express-react-server.vercel.app/api", {
       method: "POST",
       body: JSON.stringify(
         newUser
@@ -97,13 +97,17 @@ function App() {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    });
+    }).then((response) => {
+    if (response.status === 200) {
     setUsers([...users, newUser]);
     console.log(users);
     alert("Usuario agregado con exito");
     setNewUser("");
     console.log(newUser);
     console.log(users);
+  } else {
+    return;
+  }});
   };
 
   const deleteUser = async (id) => {
