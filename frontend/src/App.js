@@ -14,8 +14,7 @@ function App() {
   console.log(currentUser); 
 
   const getUsers = async () => {
-    // const endPoint = "http://localhost:8081/api";
-    const endPoint = "https://crud-nodejs-express-react-server.vercel.app/api";
+    const endPoint = "http://localhost:8081/api";
     const response = await fetch(endPoint);
     const data = await response.json();
 
@@ -87,8 +86,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // para que no se recargue la pagina al momento de procesar el formulario
-    // fetch("http://localhost:8081/api", {
-    fetch("/api", {
+    fetch("http://localhost:8081/api", {
       method: "POST",
       body: JSON.stringify(
         newUser
@@ -109,7 +107,7 @@ function App() {
   const deleteUser = async (id) => {
     alert("Seguro que quiere eliminar a este usuario?");
     console.log(id);
-    await fetch(`https://crud-nodejs-express-react-server-ln8j9a7l3.vercel.app/api/${id}`, {
+    await fetch(`http://localhost:8081/api/${id}`, {
       method: "DELETE",
     }).then((response) => {
       if (response.status === 200) {
