@@ -31,11 +31,13 @@ app.post("/api", (req, res) => {
     console.log('este es el nuevo usuario')
     res.send("api");
 
-    users.push(req.body);
+    //Se escribe y actualiza users.json solo en el localHost:3000 y 8081
+    fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
+        if (err) console.log('Error writing file:', err);
+    })
 
-    // fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
-    //     if (err) console.log('Error writing file:', err);
-    // })
+    //Se escribe, actualiza y agrega un usuario en servidor en Producción, en este caso Vercel.
+    users.push(req.body);
     console.log("usuarios actuales" + users)
 });
 
