@@ -31,6 +31,8 @@ app.post("/api", (req, res) => {
     console.log('este es el nuevo usuario')
     res.send("api");
 
+    users.push(req.body);
+
     fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
         if (err) console.log('Error writing file:', err);
     })
