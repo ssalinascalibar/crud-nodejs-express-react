@@ -29,7 +29,7 @@ app.post("/api", (req, res) => {
     // newUser = req.body
     console.log(req.body); // undefined
     console.log('este es el nuevo usuario')
-    res.send("Api - Usuario nuevo - POST");
+    res.send("Api - Usuario agregado - POST");
 
     //Se escribe y actualiza users.json solo en el localHost:3000 y 8081
     fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
