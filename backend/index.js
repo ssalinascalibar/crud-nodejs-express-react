@@ -37,7 +37,7 @@ app.post("/api", (req, res) => {
     })
 
     //Se escribe, actualiza y agrega un usuario en servidor en Producción, en este caso Vercel.
-    users([...users, req.body]);
+    users.push(req.body);
     console.log("usuarios actuales" + users)
 });
 
