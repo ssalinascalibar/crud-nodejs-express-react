@@ -66,8 +66,9 @@ app.delete("/api/:id", (req, res) => {
 app.put("/api/:id", (req, res) => {
     // newUser = req.body
     console.log(req.body); // undefined
+    console.log(req.body.id)
     console.log('este es el nuevo usuario editado')
-    res.send("api");
+    res.send("api - Usuario editado - PUT");
 
     const index = users.indexOf(
         users.find((user) => user.id === req.params.id.toString())
