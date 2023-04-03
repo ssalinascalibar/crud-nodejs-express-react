@@ -31,7 +31,7 @@ app.post("/api", (req, res) => {
     console.log('este es el nuevo usuario')
     res.send("Api - Usuario agregado - POST");
 
-    //Se escribe y actualiza users.json solo en el localHost:3000 y 8081
+    //Se escribe y actualiza users.json solo en el localHost:3000 y 8081 (en local)
     fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
         if (err) console.log('Error writing file:', err);
     })
