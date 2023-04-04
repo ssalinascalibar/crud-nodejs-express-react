@@ -70,16 +70,17 @@ app.put("/api/:id", (req, res) => {
     console.log('este es el nuevo usuario editado')
     res.send("api - Usuario editado - PUT");
 
+    
+      
+    fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
+        if (err) console.log('Error writing file:', err);
+    })
     const index = users.indexOf(
         users.find((user) => user.id === req.params.id.toString())
         );
         console.log("variable index = posición en array " + index)
         console.log("variable req.params = id del usuario editado " + req.params.id)
       users.splice(index, 1);
-      
-    fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
-        if (err) console.log('Error writing file:', err);
-    })
     console.log("usuarios actuales" + users)
 });
 
