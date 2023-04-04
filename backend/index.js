@@ -75,14 +75,12 @@ app.put("/api/:id", (req, res) => {
         );
         console.log("variable index = posición en array " + index)
         console.log("variable req.params = id del usuario editado " + req.params.id)
-        
+        users.splice(index, 1).push(req.body);;
+        // users.push(req.body);
       
     fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
         if (err) console.log('Error writing file:', err);
     })
-
-    users.splice(index, 1);
-        users.push(req.body);
     res.send("api - Usuario editado - PUT");
     console.log("usuarios actuales" + users)
 });
