@@ -1,27 +1,42 @@
-import React from 'react'
+import React from "react";
 
 //Context
-import { useContext } from 'react';
-import Context from '../Context';
+import { useContext } from "react";
+import Context from "../Context";
 
 //components
-import EditUserModal from '../components/EditUserModal';
-import AddUserModal from '../components/AddUserModal';
+import EditUserModal from "../components/EditUserModal";
+import AddUserModal from "../components/AddUserModal";
 
 export default function Home() {
-
-    const { users, setUsers, deleteUser, editUser, editarUsuario, handleChangeName, addActualUser, newUser, setNewUser } = useContext(Context);
+  const {
+    users,
+    setUsers,
+    deleteUser,
+    editUser,
+    editarUsuario,
+    handleChangeName,
+    addActualUser,
+    newUser,
+    setNewUser,
+  } = useContext(Context);
 
   return (
     <div className="container">
-        <br />
-        <h1>CRUD NodeJs + express, ReactJs, json file</h1>
-        <br />
-        <AddUserModal newUser={newUser} setNewUser={setNewUser} users={users} setUsers={setUsers} />
-        <br />
-        <br />
-        <h2>Tabla de usuarios</h2>
-        <table className="table">
+      <br />
+      <h1>CRUD NodeJs + express, ReactJs, json file</h1>
+      <br />
+      <AddUserModal
+        newUser={newUser}
+        setNewUser={setNewUser}
+        users={users}
+        setUsers={setUsers}
+      />
+      <br />
+      <br />
+      <h2>Tabla de usuarios</h2>
+      <div className="table-responsive">
+        <table className="table align-middle">
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -30,7 +45,7 @@ export default function Home() {
               <th scope="col">Edad</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-group-divider">
             {users.map((user, i) => (
               <tr key={i}>
                 <td>{user.id}</td>
@@ -61,6 +76,7 @@ export default function Home() {
             ))}
           </tbody>
         </table>
+      </div>
     </div>
-  )
+  );
 }
