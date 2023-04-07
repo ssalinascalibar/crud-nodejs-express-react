@@ -1,12 +1,12 @@
 import React from "react";
 
-const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , handleChangeName, editarUsuario}) => {
+const EditUserModal = ({ editUser,id, userName, userLastName, userAge, addActualUser , handleChangeName, editarUsuario}) => {
   return (
     <div>
-      <div className="btn-editar">
+      <div>
         <button
           type="button"
-          className="btn btn-info"
+          className="btn btn-warning"
           data-bs-toggle="modal"
           data-bs-target={"#" + id}
           onClick={() => addActualUser(id, userName, userLastName, userAge)}
@@ -25,7 +25,7 @@ const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , h
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel"></h1>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Editar usuario</h1>
               <button
                 type="button"
                 className="btn-close"
@@ -35,7 +35,6 @@ const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , h
             </div>
             <div className="modal-body">
               <form>
-                <h2>Editar Datos de {userName}</h2>
                 <div className="mb-3 mt-4">
                   <label className="form-label">Id</label>
                 </div>
@@ -58,7 +57,7 @@ const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , h
                   name="name"
                   value={editUser.name || ""}
                   onChange={handleChangeName}
-                  placeholder="nombre"
+                  placeholder={userName}
                 />
                 <div className="mb-3 mt-4">
                   <label className="form-label">Apellido</label>
@@ -70,7 +69,7 @@ const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , h
                   name="last_name"
                   value={editUser.last_name || ""}
                   onChange={handleChangeName}
-                  placeholder="apellido"
+                  placeholder={userLastName}
                 />
                 <div className="mb-3 mt-4">
                   <label className="form-label">Edad</label>
@@ -82,7 +81,7 @@ const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , h
                   name="age"
                   value={editUser.age || ""}
                   onChange={handleChangeName}
-                  placeholder="edad"
+                  placeholder={userAge}
                 />
                 {/* <button
                   type="button"
@@ -117,4 +116,4 @@ const Modal = ({ editUser,id, userName, userLastName, userAge, addActualUser , h
   );
 };
 
-export default Modal;
+export default EditUserModal;
