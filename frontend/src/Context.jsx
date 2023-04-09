@@ -8,8 +8,8 @@ const ContextProvider = ({ children }) => {
     //Estado que guarda los usuarios
     const [users, setUsers] = useState([]);
 
-    //estado guarda el usuario editado
-    const [editUser, setEditUser] = useState({});
+    // //estado guarda el usuario editado
+    // const [editUser, setEditUser] = useState({});
 
     //Estado guarda al nuevo usuario
     const [newUser, setNewUser] = useState([]);
@@ -21,7 +21,7 @@ const ContextProvider = ({ children }) => {
     //obtiene a todos los usuarios
     const getUsers = async () => {
         // const endPoint = "http://localhost:8081/api";
-        const endPoint = "https://crud-nodejs-express-react-server.vercel.app/api";
+        const endPoint = "http://localhost:8081/api" || "https://crud-nodejs-express-react-server.vercel.app/api";
         const response = await fetch(endPoint);
         const data = await response.json();
     
@@ -64,54 +64,54 @@ const ContextProvider = ({ children }) => {
       //   });
       // };
 
-      const handleChangeName = (e) => {
-        setEditUser({
-          ...editUser,
-          [e.target.name]: e.target.value,
-        });
-      };
+      // const handleChangeName = (e) => {
+      //   setEditUser({
+      //     ...editUser,
+      //     [e.target.name]: e.target.value,
+      //   });
+      // };
 
-      const addActualUser = (id, userName, userLastName, userAge) => {
-        setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
-        console.log(currentUser)
-      }
+      // const addActualUser = (id, userName, userLastName, userAge) => {
+      //   setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
+      //   console.log(currentUser)
+      // }
 
-      const editarUsuario = async (editUser, id ) => {
-        console.log(currentUser)
-        const editedUser = ({id:id, name:editUser.name, last_name:editUser.last_name, age:editUser.age})
-        console.log(editedUser)
-        console.log(editUser)
-        console.log(id)
-        console.log(editUser)
-        setCurrentUser(editedUser)
+      // const editarUsuario = async (editUser, id ) => {
+      //   console.log(currentUser)
+      //   const editedUser = ({id:id, name:editUser.name, last_name:editUser.last_name, age:editUser.age})
+      //   console.log(editedUser)
+      //   console.log(editUser)
+      //   console.log(id)
+      //   console.log(editUser)
+      //   setCurrentUser(editedUser)
     
-        // fetch(`http://localhost:8081/api/${id}`, {
-        fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
-          method: "PUT",
-          body: JSON.stringify(
-            editedUser
-            // userId: Math.random().toString(36).slice(2),
-            ),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          });
-          console.log(currentUser)
-        //se actualiza el estado del usuario seleccionado a editar con los datos traidos desde el modal
-        // setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
+      //   fetch(`http://localhost:8081/api/${id}`, {
+      //   // fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+      //     method: "PUT",
+      //     body: JSON.stringify(
+      //       editedUser
+      //       // userId: Math.random().toString(36).slice(2),
+      //       ),
+      //       headers: {
+      //         "Content-type": "application/json; charset=UTF-8",
+      //       },
+      //     });
+      //     console.log(currentUser)
+      //   //se actualiza el estado del usuario seleccionado a editar con los datos traidos desde el modal
+      //   // setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
         
     
-        console.log(users)
-        // console.log("posicion usuario actual " + userFinded)
-        // const userFinded = users.find((user) => user.id === currentUser.id)
-        setEditUser('');
-      };
+      //   console.log(users)
+      //   // console.log("posicion usuario actual " + userFinded)
+      //   // const userFinded = users.find((user) => user.id === currentUser.id)
+      //   setEditUser('');
+      // };
 
       const deleteUser = async (id) => {
         alert("Seguro que quiere eliminar a este usuario?");
         console.log(id);
-        // await fetch(`http://localhost:8081/api/${id}`, {
-        await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+        await fetch(`http://localhost:8081/api/${id}` || `https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+        // await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
           method: "DELETE",
         }).then((response) => {
           if (response.status === 200) {
@@ -132,10 +132,11 @@ const ContextProvider = ({ children }) => {
           users,
           setUsers,
           deleteUser,
-          editUser,
-          editarUsuario,
-          handleChangeName,
-          addActualUser,
+          // editarUsuario,
+          // handleChangeName,
+          // addActualUser,
+          currentUser,
+          setCurrentUser,
           newUser,
           setNewUser
         }}

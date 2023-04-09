@@ -76,9 +76,12 @@ app.put("/api/:id", (req, res) => {
         console.log("variable index = posición en array " + index)
         console.log("variable req.params = id del usuario editado " + req.params.id)
         users.splice(index, 1);
-        users.push(req.body);
+
+        //funciona para actualizar users solo en producción, en desarrollo mejor comentar esta linea de código
+        // users.push(req.body);
       
     fs.writeFile('./users.json', JSON.stringify([...users, req.body]), (err) => {
+        users.push(req.body);
         if (err) console.log('Error writing file:', err);
     })
     res.send("api - Usuario editado - PUT");

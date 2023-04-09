@@ -13,10 +13,6 @@ export default function Home() {
     users,
     setUsers,
     deleteUser,
-    editUser,
-    editarUsuario,
-    handleChangeName,
-    addActualUser,
     newUser,
     setNewUser,
   } = useContext(Context);
@@ -62,14 +58,10 @@ export default function Home() {
                 </td>
                 <td>
                   <EditUserModal
-                    editUser={editUser}
                     id={user.id}
                     userName={user.name}
                     userLastName={user.last_name}
                     userAge={user.age}
-                    editarUsuario={editarUsuario}
-                    handleChangeName={handleChangeName}
-                    addActualUser={addActualUser}
                   />
                 </td>
               </tr>

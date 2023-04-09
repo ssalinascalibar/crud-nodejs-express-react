@@ -1,6 +1,62 @@
 import React from "react";
 
-const EditUserModal = ({ editUser,id, userName, userLastName, userAge, addActualUser , handleChangeName, editarUsuario}) => {
+//Context
+import { useContext } from "react";
+import Context from "../Context";
+
+import { useState } from "react";
+
+const EditUserModal = ({ id, userName, userLastName, userAge }) => {
+
+  //variables globales, context
+  const { users, currentUser, setCurrentUser } = useContext(Context);
+
+  //estado guarda el usuario editado
+  const [editUser, setEditUser] = useState({});
+
+  const addActualUser = (id, userName, userLastName, userAge) => {
+    setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
+    console.log(currentUser)
+  }
+
+  const handleChangeName = (e) => {
+    setEditUser({
+      ...editUser,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const editarUsuario = async () => {
+    console.log(currentUser)
+    const editedUser = ({id:id, name:editUser.name, last_name:editUser.last_name, age:editUser.age})
+    console.log(editedUser)
+    console.log(editUser)
+    console.log(id)
+    console.log(editUser)
+    setCurrentUser(editedUser)
+
+    fetch(`http://localhost:8081/api/${id}` || `https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+    // fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(
+        editedUser
+        // userId: Math.random().toString(36).slice(2),
+        ),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      console.log(currentUser)
+    //se actualiza el estado del usuario seleccionado a editar con los datos traidos desde el modal
+    // setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
+    
+
+    console.log(users)
+    // console.log("posicion usuario actual " + userFinded)
+    // const userFinded = users.find((user) => user.id === currentUser.id)
+    setEditUser('');
+  };
+
   return (
     <div>
       <div>
@@ -9,7 +65,7 @@ const EditUserModal = ({ editUser,id, userName, userLastName, userAge, addActual
           className="btn btn-warning"
           data-bs-toggle="modal"
           data-bs-target={"#" + id}
-          onClick={() => addActualUser(id, userName, userLastName, userAge)}
+          onClick={() => addActualUser()}
         >
           Editar
         </button>
@@ -104,7 +160,7 @@ const EditUserModal = ({ editUser,id, userName, userLastName, userAge, addActual
                 type="button"
                 className="btn btn-success"
                 data-bs-dismiss="modal"
-                onClick={() => editarUsuario(editUser, id)}
+                onClick={() => editarUsuario() }
               >
                 Guardar cambios
               </button>
