@@ -35,8 +35,8 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
     console.log(editUser)
     setCurrentUser(editedUser)
 
-    fetch(`http://localhost:8081/api/${id}` || `https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
-    // fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+    // fetch(`http://localhost:8081/api/${id}`, {
+    fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
       method: "PUT",
       body: JSON.stringify(
         editedUser

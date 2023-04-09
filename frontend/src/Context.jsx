@@ -20,8 +20,8 @@ const ContextProvider = ({ children }) => {
 
     //obtiene a todos los usuarios
     const getUsers = async () => {
-        // const endPoint = "http://localhost:8081/api";
-        const endPoint = "http://localhost:8081/api" || "https://crud-nodejs-express-react-server.vercel.app/api";
+        const endPoint = "http://localhost:8081/api";
+        // const endPoint = "https://crud-nodejs-express-react-server.vercel.app/api";
         const response = await fetch(endPoint);
         const data = await response.json();
     
@@ -110,8 +110,8 @@ const ContextProvider = ({ children }) => {
       const deleteUser = async (id) => {
         alert("Seguro que quiere eliminar a este usuario?");
         console.log(id);
-        await fetch(`http://localhost:8081/api/${id}` || `https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
-        // await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+        // await fetch(`http://localhost:8081/api/${id}`, {
+        await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
           method: "DELETE",
         }).then((response) => {
           if (response.status === 200) {
