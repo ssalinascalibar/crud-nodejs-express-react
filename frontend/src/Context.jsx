@@ -31,7 +31,7 @@ const ContextProvider = ({ children }) => {
     
       useEffect(() => {
         getUsers();
-      }, []);
+      }, [currentUser]);
 
       // //crea y envia el nuevo usuario al servidor
       // const handleSubmit = (e) => {
