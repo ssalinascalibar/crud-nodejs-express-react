@@ -14,10 +14,10 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
   //estado guarda el usuario editado
   const [editUser, setEditUser] = useState({});
 
-  const addActualUser = (id, userName, userLastName, userAge) => {
+  const addActualUser = () => {
     setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
-    console.log(currentUser)
   }
+  console.log(currentUser)
 
   const handleChangeName = (e) => {
     setEditUser({
@@ -33,19 +33,19 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
     console.log(editUser)
     console.log(id)
     console.log(editUser)
-    setCurrentUser(editedUser)
-
-    // fetch(`http://localhost:8081/api/${id}`, {
-    fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(
-        editedUser
-        // userId: Math.random().toString(36).slice(2),
-        ),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
+    
+    // await fetch(`http://localhost:8081/api/${id}`, {
+    await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(
+          editedUser
+          // userId: Math.random().toString(36).slice(2),
+          ),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+      setCurrentUser(editedUser)
       console.log(currentUser)
     //se actualiza el estado del usuario seleccionado a editar con los datos traidos desde el modal
     // setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
