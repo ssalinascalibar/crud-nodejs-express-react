@@ -60,7 +60,7 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
   return (
     <div>
       <div>
-        <button
+        {/* <button
           type="button"
           className="btn btn-warning"
           data-bs-toggle="modal"
@@ -68,7 +68,7 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
           onClick={() => addActualUser()}
         >
           Editar
-        </button>
+        </button> */}
       </div>
 
       <div

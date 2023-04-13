@@ -63,6 +63,15 @@ export default function Home() {
                     userLastName={user.last_name}
                     userAge={user.age}
                   />
+                  <button
+                    type="button"
+                    className="btn btn-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target={"#" + user.id}
+                    onClick={onclick}
+                  >
+                  Editar
+                  </button>
                 </td>
               </tr>
             ))}
