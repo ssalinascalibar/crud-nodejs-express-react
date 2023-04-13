@@ -39,8 +39,6 @@ export default function Home() {
               <th scope="col">Nombre</th>
               <th scope="col">Apellido</th>
               <th scope="col">Edad</th>
-              <th scope="col">borrar</th>
-              <th scope="col">modal</th>
             </tr>
           </thead>
           <tbody className="table-group-divider">
