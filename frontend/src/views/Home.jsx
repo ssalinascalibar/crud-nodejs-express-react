@@ -39,6 +39,8 @@ export default function Home() {
               <th scope="col">Nombre</th>
               <th scope="col">Apellido</th>
               <th scope="col">Edad</th>
+              <th scope="col">borrar</th>
+              <th scope="col">modal</th>
             </tr>
           </thead>
           <tbody className="table-group-divider">
@@ -63,15 +65,6 @@ export default function Home() {
                     userLastName={user.last_name}
                     userAge={user.age}
                   />
-                  <button
-                    type="button"
-                    className="btn btn-warning"
-                    data-bs-toggle="modal"
-                    data-bs-target={"#" + user.id}
-                    onClick={onclick}
-                  >
-                  Editar
-                  </button>
                 </td>
               </tr>
             ))}
