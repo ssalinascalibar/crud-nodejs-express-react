@@ -31,7 +31,7 @@ export default function Home() {
       <br />
       <br />
       <h2>Tabla de usuarios</h2>
-      <div className="table-responsive">
+      <div className="table">
         <table className="table align-middle">
           <thead>
             <tr>
