@@ -111,7 +111,7 @@ const ContextProvider = ({ children }) => {
         alert("Seguro que quiere eliminar a este usuario?");
         console.log(id);
         // await fetch(`http://localhost:8081/api/${id}`, {
-        await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}` && `http://localhost:8081/api/${id}`, {
+        await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}` || `http://localhost:8081/api/${id}`, {
           method: "DELETE",
         }).then((response) => {
           if (response.status === 200) {
