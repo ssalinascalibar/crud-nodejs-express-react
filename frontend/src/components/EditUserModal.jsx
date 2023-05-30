@@ -35,7 +35,7 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
     console.log(editUser)
     
     // await fetch(`http://localhost:8081/api/${id}`, {
-    await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
+    await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}` && `http://localhost:8081/api/${id}`, {
         method: "PUT",
         body: JSON.stringify(
           editedUser
