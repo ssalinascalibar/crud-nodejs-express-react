@@ -12,7 +12,7 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
   const { users, currentUser, setCurrentUser } = useContext(Context);
 
   //estado guarda el usuario editado
-  const [editUser, setEditUser] = useState({});
+  // const [editUser, setEditUser] = useState({});
 
   const addActualUser = () => {
     setCurrentUser({ id:id, name:userName, last_name:userLastName, age:userAge })
@@ -20,19 +20,19 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
   console.log(currentUser)
 
   const handleChangeName = (e) => {
-    setEditUser({
-      ...editUser,
+    setCurrentUser({
+      ...currentUser,
       [e.target.name]: e.target.value,
     });
   };
 
   const editarUsuario = async () => {
     console.log(currentUser)
-    const editedUser = ({id:id, name:editUser.name, last_name:editUser.last_name, age:editUser.age})
+    const editedUser = ({id:id, name:currentUser.name, last_name:currentUser.last_name, age:currentUser.age})
     console.log(editedUser)
-    console.log(editUser)
+    // console.log(editUser)
     console.log(id)
-    console.log(editUser)
+    // console.log(editUser)
     
     // await fetch(`http://localhost:8081/api/${id}`, {
     await fetch(`https://crud-nodejs-express-react-server.vercel.app/api/${id}`, {
@@ -54,7 +54,7 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
     console.log(users)
     // console.log("posicion usuario actual " + userFinded)
     // const userFinded = users.find((user) => user.id === currentUser.id)
-    setEditUser('');
+    setCurrentUser('');
   };
 
   return (
@@ -111,9 +111,9 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
                   type="text"
                   id="name"
                   name="name"
-                  value={editUser.name || ""}
+                  value={currentUser.name || ""}
                   onChange={handleChangeName}
-                  placeholder={userName}
+                  placeholder={currentUser.name}
                 />
                 <div className="mb-3 mt-4">
                   <label className="form-label">Apellido</label>
@@ -123,7 +123,7 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
                   type="text"
                   id="last_name"
                   name="last_name"
-                  value={editUser.last_name || ""}
+                  value={currentUser.last_name || ""}
                   onChange={handleChangeName}
                   placeholder={userLastName}
                 />
@@ -132,10 +132,10 @@ const EditUserModal = ({ id, userName, userLastName, userAge }) => {
                 </div>
                 <input
                   className="form-control form-control-lg"
-                  type="text"
+                  type="number"
                   id="age"
                   name="age"
-                  value={editUser.age || ""}
+                  value={currentUser.age || ""}
                   onChange={handleChangeName}
                   placeholder={userAge}
                 />
